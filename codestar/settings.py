@@ -31,7 +31,7 @@ SECRET_KEY = os.environ.get('SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['codestar2022-codeinstitute.herokuapp.com', 'localhost']
+ALLOWED_HOSTS = ["mb2test.herokuapp.com", "localhost"]
 
 
 # Application definition
@@ -45,6 +45,7 @@ INSTALLED_APPS = [
     'cloudinary_storage',
     'django.contrib.staticfiles',
     'cloudinary',
+    'django_summernote',
     'blog',
 ]
 
@@ -90,8 +91,9 @@ WSGI_APPLICATION = 'codestar.wsgi.application'
 # }
 
 DATABASES = {
-    'default' : dj_database_url.parse(os.environ.get('DATABASE_URL'))
+    'default': dj_database_url.parse(os.environ.get("DATABASE_URL"))
 }
+
 
 # Password validation
 # https://docs.djangoproject.com/en/3.2/ref/settings/#auth-password-validators
@@ -129,13 +131,11 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.2/howto/static-files/
 
-STATIC_URL = '/static/'
-STATICFILES_STORAGE = "cloudinary_storage.storage/StaticHashedCloudinaryStorage"
-STATICFILE_DIRS = [os.path.join(BASE_DIR, 'static')]
-STATICFILES_ROOT = os.path.join(BASE_DIR, 'staticfiles')
-
 MEDIA_URL = '/media/'
 DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
+
+STATIC_URL = '/static/'
+STATICFILES_STORAGE = 'cloudinary_storage.storage.StaticHashedCloudinaryStorage'
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
